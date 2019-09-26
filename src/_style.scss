@@ -1,0 +1,26 @@
+.form-container {
+
+    .repeat-control {
+        border: solid 1px #eee;
+        padding: 20px;
+        border-radius: 10px;
+        position: relative;
+        margin-bottom: 15px;
+
+        .remove {
+            position: absolute;
+            right: 10px;
+            top: 10px;
+            width: 24px;
+            border: none;
+            padding: 0;
+            cursor: pointer;
+
+            svg {
+                width: 100%;
+                height: auto;
+                fill: red;
+            }
+        }
+    }
+}
