@@ -24,3 +24,29 @@
         }
     }
 }
+
+.hight-line {
+    background-color: #ffe390;
+    color: red;
+    font-weight: bold;
+}
+
+.btn-add-question {
+
+}
+
+.tools {
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: flex-end;
+
+    .buttons {
+
+        .icon {
+
+            i {
+                font-size: 22px;
+            }
+        }
+    }
+}
