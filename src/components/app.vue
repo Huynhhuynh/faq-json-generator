@@ -15,8 +15,8 @@
                                     <svg x="0px" y="0px" viewBox="0 0 459 459" style="enable-background:new 0 0 459 459;" xml:space="preserve"> <g> <g> <path d="M229.5,0C102.751,0,0,102.751,0,229.5S102.751,459,229.5,459S459,356.249,459,229.5S356.249,0,229.5,0z M307.105,271.629 c9.797,9.797,9.797,25.68,0,35.477c-4.898,4.898-11.318,7.347-17.738,7.347c-6.42,0-12.84-2.449-17.738-7.347L229.5,264.977 l-42.128,42.129c-4.898,4.898-11.318,7.347-17.738,7.347c-6.42,0-12.84-2.449-17.738-7.347c-9.797-9.796-9.797-25.68,0-35.477 l42.129-42.129l-42.129-42.129c-9.797-9.797-9.797-25.68,0-35.477s25.68-9.797,35.477,0l42.128,42.129l42.128-42.129 c9.797-9.797,25.68-9.797,35.477,0c9.797,9.796,9.797,25.68,0,35.477l-42.13,42.129L307.105,271.629z"/> </g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> </svg>
                                 </button>
 
-                                <div class="field" v-for="field in form" :key="field">
-                                    <label class="label">{{ field.label }}</label>
+                                <div class="field" v-for="(field, _index) in form" :key="field">
+                                    <label class="label">{{ field.label }} {{ (_index == 0) ? `#${index + 1}` : '' }}</label>
                                     <div class="control">
                                         <input class="input" type="text" v-model="item_data[field.name]">
                                     </div>
@@ -34,10 +34,10 @@
                                     <span class="icon"><i class="ion-ios-copy"></i></span>
                                     <span>Copy</span>
                                 </a>
-                                <a class="Disabled button is-success" disabled>
+                                <!-- <a class="Disabled button is-success" disabled>
                                     <span class="icon is-small"><i class="ion-social-codepen"></i></span>
                                     <span>Test</span>
-                                </a>
+                                </a> -->
                                 <a class="button is-danger is-outlined" @click="reset()">
                                     <span>Reset</span>
                                     <span class="icon is-small"><i class="ion-ios-refresh"></i></span>
