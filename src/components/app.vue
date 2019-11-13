@@ -18,7 +18,8 @@
                                 <div class="field" v-for="(field, _index) in form" :key="field">
                                     <label class="label">{{ field.label }} {{ (_index == 0) ? `#${index + 1}` : '' }}</label>
                                     <div class="control">
-                                        <input class="input" type="text" v-model="item_data[field.name]">
+                                        <input v-if="field.type == 'input'" class="input" type="text" v-model="item_data[field.name]">
+                                        <textarea v-if="field.type == 'textarea'" class="textarea" v-model="item_data[field.name]"></textarea>
                                     </div>
                                 </div>
                             </div>
@@ -45,7 +46,7 @@
                             </p>
                         </div>
 <pre id="mockup">
-&lt;script type="application/ld+json"&gt;<div v-html="mockup_html"></div>&lt;/script&gt;
+&lt;script type="application/ld+json"&gt;{{ mockup_html }}&lt;/script&gt;
 </pre>
                     </div>
 
@@ -88,10 +89,10 @@
                 this.form_data.forEach( function( item, index ) {
                     output.push( {
                         "@type": "Question",
-                        "name": `<span class='hight-line'>${item.question}</span>`,
+                        "name": item.question,
                         "acceptedAnswer": {
                             "@type": "Answer",
-                            "text": `<span class='hight-line'>${item.answer}</span>`
+                            "text": item.answer
                         }
                     } );
                 } )
