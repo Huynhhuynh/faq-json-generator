@@ -54,4 +54,18 @@
 #mockup {
     max-width: 50vw;
     overflow: auto;
+    word-break: break-all;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+.small-label {
+    background: #222;
+    color: #FFF;
+    border-radius: 4px;
+    padding: 4px;
+    margin-top: 20px;
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 500;
 }

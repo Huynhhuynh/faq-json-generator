@@ -24,6 +24,10 @@
                                 </div>
                             </div>
                             <button type="button" name="button" class="button is-primary btn-add-question" @click="add_more">Add Question</button>
+
+                            <div>
+                                <small class="small-label">Exam shortcode: [click url=https://google.com text=Go Google]</small>
+                            </div>
                         </div> <!-- .form-container -->
 
                     </div>
@@ -45,9 +49,8 @@
                                 </a>
                             </p>
                         </div>
-<pre id="mockup">
-&lt;script type="application/ld+json"&gt;{{ mockup_html }}&lt;/script&gt;
-</pre>
+<pre id="mockup" v-shortcode="mockup_html"></pre>
+<!-- &lt;script type="application/ld+json"&gt;{{ mockup_html }}&lt;/script&gt; -->
                     </div>
 
                 </div>
@@ -123,8 +126,8 @@
                 var dummy = document.createElement('textarea');
                 document.body.appendChild(dummy);
                 dummy.value = document.getElementById('mockup').innerHTML.replaceArray(
-                    ["&lt;", "&gt;", "<span class=\"hight-line\">", "<span class='hight-line'>", "</span>", "<div>", "</div>"],
-                    ["<", ">", "", "", "", "", ""]
+                    ["&lt;", "&gt;"],
+                    ["<", ">"]
                 );
 
                 dummy.select();
