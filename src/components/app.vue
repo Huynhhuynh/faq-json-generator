@@ -5,7 +5,7 @@
             <div class="container">
 
                 <div class="columns">
-                    <div class="column">
+                    <div class="column is-half">
 
                         <h2 class="title">FAQ Page</h2>
 
@@ -32,7 +32,7 @@
 
                     </div>
 
-                    <div class="column">
+                    <div class="column is-half">
                         <div class="tools">
                             <p class="buttons">
                                 <a class="button is-primary" @click="copy()">
@@ -49,10 +49,13 @@
                                 </a>
                             </p>
                         </div>
-<pre id="mockup" v-shortcode="mockup_html"></pre>
+<pre id="mockup" class="mockup" v-shortcode="mockup_html"></pre>
+<br />
+Minified
+<pre class="mockup" v-html="mockup_string"></pre>
 <!-- &lt;script type="application/ld+json"&gt;{{ mockup_html }}&lt;/script&gt; -->
                     </div>
-
+ 
                 </div>
 
             </div> <!-- .container -->
@@ -105,6 +108,23 @@
                     "@type": "FAQPage",
                     "mainEntity": output,
                 };
+            },
+            mockup_string () {
+                let div_shadow = document.createElement( 'div' )
+                div_shadow.innerHTML = JSON.stringify( this.mockup_html )
+
+                new window.Shortcode( div_shadow, {
+                    'click': function() {
+                        var args = Object.assign( {
+                            url: '',
+                            text: 'Click Here',
+                        }, ( this.options ) ? this.options : {} );
+
+                        return ( args.url ) ? `&lt;a href=${ args.url + url_params }&gt;${ args.text }&lt;/a&gt;` : '';
+                    }
+                } ) 
+
+                return '&lt;script type="application/ld+json"&gt;'+ div_shadow.innerHTML +'&lt;/script&gt;'
             }
         },
         methods: {

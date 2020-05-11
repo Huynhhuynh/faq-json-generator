@@ -53,10 +53,13 @@
 
 #mockup {
     max-width: 50vw;
+}
+
+.mockup {
     overflow: auto;
     word-break: break-all;
     white-space: pre-wrap;
-    word-wrap: break-word;
+    word-wrap: break-word; 
 }
 
 .small-label {
